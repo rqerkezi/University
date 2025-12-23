@@ -103,8 +103,12 @@ CORS_ALLOW_CREDENTIALS = True
 from corsheaders.defaults import default_headers
 CORS_ALLOW_HEADERS = list(default_headers) + ['authorization']
 
-# CSRF trusted origins (PythonAnywhere)
-CSRF_TRUSTED_ORIGINS =  ['rinaq.pythonanywhere.com']
+CSRF_TRUSTED_ORIGINS = [
+    'https://rinaq.pythonanywhere.com'
+]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 # Optional: log to console on PythonAnywhere
 LOGGING = {
