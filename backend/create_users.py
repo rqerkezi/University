@@ -1,20 +1,26 @@
 """
 Script to create initial users and data for the University application
 """
+import sys
 import os
 import django
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'university_project.settings')
+# Add the current folder to Python path so Django can find the project
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+# Set correct Django settings module
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
 django.setup()
 
 from django.contrib.auth.models import User
-from university.models import Faculty, Subject, Administrator, Professor, Student
+from University.models import Faculty, Subject, Administrator, Professor, Student
 
 # Clear existing data (optional)
 # User.objects.all().delete()
 # Faculty.objects.all().delete()
 
 print("Creating Faculty data...")
+
 # Create faculties
 cs_faculty, _ = Faculty.objects.get_or_create(
     department='CS',
@@ -27,6 +33,7 @@ en_faculty, _ = Faculty.objects.get_or_create(
 )
 
 print("Creating Subjects...")
+
 # Create subjects for Computer Science
 subjects_cs = [
     {'name': 'Data Structures', 'code': 'CS101', 'faculty': cs_faculty, 'credits': 4},
