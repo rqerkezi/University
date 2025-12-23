@@ -8,8 +8,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-default-key')
 DEBUG = False  # Must be False in production
 
-# Allow your PythonAnywhere domain
-ALLOWED_HOSTS = ['rinaq.pythonanywhere.com']
+ALLOWED_HOSTS = ["rinaq.pythonanywhere.com", "localhost", "127.0.0.1"]
+
 
 # Application definition
 INSTALLED_APPS = [
